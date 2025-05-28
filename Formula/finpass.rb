@@ -5,21 +5,21 @@
 class Finpass < Formula
   desc "finpass generates passwords using Finnish language words"
   homepage "https://github.com/hermo/finpass"
-  version "1.3.0"
+  version "1.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hermo/finpass/releases/download/v1.3.0/finpass_1.3.0_macOS_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "fcfa0f6bf2c67996e8302e0847d9ff334fc1af350df2c51bab017fa58d856bc7"
+      url "https://github.com/hermo/finpass/releases/download/v1.4.0/finpass_1.4.0_darwin_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "d3db5c0e05463f559e45257e0c2ef39f3c4e18dcb64a52163a82876a68b511c2"
 
       def install
         bin.install "finpass"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hermo/finpass/releases/download/v1.3.0/finpass_1.3.0_macOS_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "095e4bcf6ec87f881752dcef729130781868253f16ecd490abb87db31989e388"
+      url "https://github.com/hermo/finpass/releases/download/v1.4.0/finpass_1.4.0_darwin_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "297f17809ced0305a0c037ef8f9f5b399cdc4f0a68751b94dd3da2dc95f40035"
 
       def install
         bin.install "finpass"
@@ -28,10 +28,9 @@ class Finpass < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/hermo/finpass/releases/download/v1.3.0/finpass_1.3.0_linux_amd64.tar.gz", using: CurlDownloadStrategy
-      sha256 "003895eaab78c2b71a297b7460fde91738adb57ca97900fb5bc9bbf49dfcc09a"
-
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/hermo/finpass/releases/download/v1.4.0/finpass_1.4.0_linux_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "85030c5ccf8b92610392af9e7d6b05e695786ca9bdee2898c0cf6b4f9a6e8a32"
       def install
         bin.install "finpass"
       end
